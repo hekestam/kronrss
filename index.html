@@ -124,14 +124,26 @@ overflow-wrap: break-word;
                 console.log((i+1) + ' - ' + author + ' - ' + pubDate);
 
             if (seenAuthors.has(author)) {
-                continue;
+                continue
+            }
+
+            if (author.toLowerCase()==='A Wealth of Common Sense'.toLowerCase()) {
+                if (title.toLowerCase().includes('talk your book')) {
+                    continue
+                }
+                if (title.toLowerCase().includes('animal spirits')) {
+                    continue
+                }
+                if (title.toLowerCase().includes('books for')) {
+                    continue
+                }
             }
 
             //console.log((i+1) + ' - ' + author + ' - ' + pubDate);
 
             seenAuthors.add(author);
 
-            title = title.padEnd(3,'¤');
+            title = title.padEnd(3,'·');
 
             feedItems.push({
                     title,
