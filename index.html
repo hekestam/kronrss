@@ -78,7 +78,7 @@ overflow-wrap: break-word;
             "&url=" +
             encodeURIComponent(rssUrl);
 
-        fetch(proxyUrl)
+        fetch(proxyUrl, {cache: "no-store"})
             .then((response) => response.text())
             .then((xmlString) => {
                 const parser = new DOMParser();
